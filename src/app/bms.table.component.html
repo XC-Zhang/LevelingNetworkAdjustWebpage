@@ -5,7 +5,12 @@
     </ng-container>
     <ng-container matColumnDef="approximation">
         <th mat-header-cell *matHeaderCellDef>Approximation</th>
-        <td mat-cell *matCellDef="let bm">{{ bm.approximation }}</td>
+        <td mat-cell *matCellDef="let bm">
+            <span *ngIf="!bm.isKnown">{{ bm.approximation }}</span>
+            <mat-form-field *ngIf="bm.isKnown">
+                <input matInput [value]="bm.approximation">
+            </mat-form-field>
+        </td>
     </ng-container>
     <ng-container matColumnDef="adjustment">
         <th mat-header-cell *matHeaderCellDef>Adjustment</th>
@@ -13,7 +18,9 @@
     </ng-container>
     <ng-container matColumnDef="isKnown">
         <th mat-header-cell *matHeaderCellDef>Is Known</th>
-        <td mat-cell *matCellDef="let bm">{{ bm.isKnown }}</td>
+        <td mat-cell *matCellDef="let bm">
+            <mat-checkbox [(ngModel)]="bm.isKnown" aria-label="Is Known"></mat-checkbox>
+        </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
