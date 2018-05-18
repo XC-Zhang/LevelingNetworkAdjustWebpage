@@ -38,7 +38,8 @@ export class CsvComponent implements AfterViewInit {
                 }
                 const observation = new Observation(benchmark1, benchmark2, parseFloat(split[3]), parseFloat(split[2]));
                 this.observations.push(observation);
-                benchmark1.connections.push(observation);
+                benchmark1.nexts.push(observation);
+                benchmark2.prevs.push(observation);
             });
             this.onLoad.emit();
         });

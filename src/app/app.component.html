@@ -2,3 +2,7 @@
 <csv-component (onLoad)="onCsvLoad()"></csv-component>
 <obs-table [dataSource]="csvComponent.observations"></obs-table>
 <bms-table [dataSource]="csvComponent.benchmarks"></bms-table>
+<button mat-button (click)="onApproximateButtonClick()">Approximate</button>
+<button mat-button (click)="onMatricesButtonClick()">Matrices</button>
+<matrix-table *ngIf="matrixCalculated" [matrix]="adjustment.matrixB"></matrix-table>
+<vector-table *ngIf="matrixCalculated" [vector]="adjustment.matrixL"></vector-table>

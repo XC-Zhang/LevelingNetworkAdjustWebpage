@@ -27,4 +27,9 @@ export class BmsTableComponent {
         this._mapToArray();
         this.table.renderRows();
     }
+    approximationInputChange (bm: Benchmark, $event: string) {
+        try {
+            bm.approximation = parseFloat($event);
+        } catch (err) { }
+    }
 }

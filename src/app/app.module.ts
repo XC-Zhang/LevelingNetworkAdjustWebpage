@@ -11,13 +11,17 @@ import { AppComponent } from './app.component';
 import { CsvComponent } from './csv.component';
 import { ObsTableComponent } from './obs.table.component';
 import { BmsTableComponent } from './bms.table.component';
+import { MatrixTableComponent } from './matrix.table.component';
+import { VectorTableComponent } from './vector.table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CsvComponent,
     ObsTableComponent,
-    BmsTableComponent
+    BmsTableComponent,
+    MatrixTableComponent,
+    VectorTableComponent
   ],
   imports: [
     BrowserModule,

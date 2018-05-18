@@ -8,7 +8,7 @@
         <td mat-cell *matCellDef="let bm">
             <span *ngIf="!bm.isKnown">{{ bm.approximation }}</span>
             <mat-form-field *ngIf="bm.isKnown">
-                <input matInput [value]="bm.approximation">
+                <input matInput [ngModel]="bm.approximation" (ngModelChange)="approximationInputChange(bm, $event)">
             </mat-form-field>
         </td>
     </ng-container>
