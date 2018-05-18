@@ -6,3 +6,4 @@
 <button mat-button (click)="onMatricesButtonClick()">Matrices</button>
 <matrix-table *ngIf="matrixCalculated" [matrix]="adjustment.matrixB"></matrix-table>
 <vector-table *ngIf="matrixCalculated" [vector]="adjustment.matrixL"></vector-table>
+<button mat-button (click)="onCalculateButtonClick()">Calculate</button>

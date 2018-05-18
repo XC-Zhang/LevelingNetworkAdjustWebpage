@@ -67,4 +67,17 @@ export class Adjustment {
             this.matrixL[i] = this.observations[i].value + this.observations[i].start.approximation - this.observations[i].end.approximation;
         }
     }
+
+    getResult () {
+        if (!this.matrixB || !this.matrixL) {
+            throw new Error();
+        }
+        const matrixX: number[] = mathjs.squeeze(mathjs.lusolve(
+            mathjs.multiply(mathjs.transpose(this.matrixB), this.matrixB),
+            mathjs.multiply(mathjs.transpose(this.matrixB), this.matrixL)
+        ));
+        this.unknownBenchmarks.forEach((benchmark, index) => {
+            benchmark.adjustment = matrixX[index];
+        });
+    }
 }

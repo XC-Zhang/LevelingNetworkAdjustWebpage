@@ -12,6 +12,7 @@ import { Adjustment, Benchmark } from "../models";
 export class AppComponent {
   adjustment: Adjustment;
   matrixCalculated = false;
+  resultCalculated = false;
   @ViewChild(CsvComponent) csvComponent: CsvComponent;
   @ViewChild(ObsTableComponent) obsTableComponent: ObsTableComponent;
   @ViewChild(BmsTableComponent) bmsTableComponent: BmsTableComponent;
@@ -31,5 +32,9 @@ export class AppComponent {
   onMatricesButtonClick () {
     this.adjustment.getMatrices();
     this.matrixCalculated = true;
+  }
+  onCalculateButtonClick () {
+    this.adjustment.getResult();
+    this.resultCalculated = true;
   }
 }
